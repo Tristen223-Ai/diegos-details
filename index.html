@@ -1197,11 +1197,11 @@
         <div class="form-row">
           <div class="form-group">
             <label for="fname">First Name</label>
-            <input type="text" id="fname" placeholder="Diego">
+            <input type="text" id="fname" placeholder="First name">
           </div>
           <div class="form-group">
             <label for="lname">Last Name</label>
-            <input type="text" id="lname" placeholder="Rivera">
+            <input type="text" id="lname" placeholder="Last name">
           </div>
         </div>
 
@@ -1256,7 +1256,7 @@
         </div>
 
         <button class="form-submit" onclick="handleSubmit()">Request Appointment →</button>
-        <p id="form-msg" style="font-family:var(--font-cond); font-size:0.85rem; text-align:center; margin-top:0.75rem; color:var(--rust-light); display:none;">✔ Sent! Check your email — Diego will confirm within 24 hours.</p>
+        <p id="form-msg" style="font-family:var(--font-cond); font-size:0.85rem; text-align:center; margin-top:0.75rem; color:var(--rust-light); display:none;">✔ Opening your messages — send that text to Diego to lock in your appointment!</p>
         <p id="form-err" style="font-family:var(--font-cond); font-size:0.85rem; text-align:center; margin-top:0.75rem; color:#e04f10; display:none;">Please fill out all required fields.</p>
       </div>
     </div>
@@ -1295,24 +1295,21 @@ function handleSubmit() {
     return;
   }
 
-  const subject = encodeURIComponent('New Appointment Request – Diego\'s Details');
-  const body = encodeURIComponent(
-    'NEW BOOKING REQUEST\n' +
-    '===================\n\n' +
-    'Name:     ' + fname + ' ' + lname + '\n' +
-    'Phone:    ' + phone + '\n' +
-    'Email:    ' + email + '\n' +
-    'Vehicle:  ' + vehicle + '\n' +
-    'Service:  ' + service + '\n' +
-    'Date:     ' + date + '\n\n' +
-    'Notes:\n' + (notes || 'None') + '\n\n' +
-    '---\n' +
-    'Remind customer to send $25 deposit via Cash App, Venmo, PayPal, or Zelle to confirm.'
+  const smsBody = encodeURIComponent(
+    '🚗 NEW BOOKING – Diego\'s Details\n\n' +
+    'Name: ' + fname + ' ' + lname + '\n' +
+    'Phone: ' + phone + '\n' +
+    'Email: ' + email + '\n' +
+    'Vehicle: ' + vehicle + '\n' +
+    'Service: ' + service + '\n' +
+    'Date: ' + date + '\n' +
+    'Notes: ' + (notes || 'None') + '\n\n' +
+    'Remind them to send $25 deposit to confirm.'
   );
 
-  window.location.href = 'mailto:diegothomas223@icloud.com?subject=' + subject + '&body=' + body;
+  window.location.href = 'sms:3306068627?body=' + smsBody;
 
-  setTimeout(() => { msg.style.display = 'block'; }, 500);
+  setTimeout(() => { msg.style.display = 'block'; }, 600);
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
