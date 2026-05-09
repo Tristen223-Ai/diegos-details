@@ -1,1 +1,1329 @@
-github.com/Tristen223-Ai/diegos-details
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diego's Details – Premium Auto Detailing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0e0d0c;
+    --dark: #181614;
+    --steel: #2a2723;
+    --rust: #c0410a;
+    --rust-light: #e04f10;
+    --rust-dim: #7a2800;
+    --smoke: #888078;
+    --ash: #b8b0a4;
+    --cream: #e8e0d4;
+    --white: #f5f0eb;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-cond: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(14,13,12,0.92);
+    border-bottom: 1px solid rgba(192,65,10,0.3);
+    backdrop-filter: blur(6px);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .nav-logo span { color: var(--rust); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-cond);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ash);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--rust-light); }
+
+  .nav-cta {
+    font-family: var(--font-cond);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white) !important;
+    background: var(--rust);
+    padding: 0.5rem 1.4rem;
+    border-radius: 2px;
+  }
+
+  .nav-cta:hover { background: var(--rust-light); color: var(--white) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(192,65,10,0.12) 0%, transparent 50%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.012) 40px,
+        rgba(255,255,255,0.012) 41px
+      );
+  }
+
+  .hero-accent {
+    position: absolute;
+    right: -120px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(ellipse, rgba(192,65,10,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: var(--font-cond);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--rust);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 13vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    max-width: 900px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--rust);
+    display: block;
+  }
+
+  .hero-sub {
+    font-family: var(--font-cond);
+    font-size: 1.2rem;
+    color: var(--smoke);
+    max-width: 480px;
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: var(--font-cond);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--rust);
+    padding: 0.85rem 2.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--rust-light); }
+
+  .btn-ghost {
+    font-family: var(--font-cond);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ash);
+    background: transparent;
+    padding: 0.85rem 2.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    border: 1px solid rgba(184,176,164,0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--ash); color: var(--cream); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(184,176,164,0.12);
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-num span { color: var(--rust); }
+
+  .stat-label {
+    font-family: var(--font-cond);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    margin-top: 0.3rem;
+  }
+
+  /* SECTION SHARED */
+  section { position: relative; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+  }
+
+  .section-label {
+    font-family: var(--font-cond);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rust);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--rust);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 3rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(192,65,10,0.4), rgba(184,176,164,0.2), transparent);
+    margin: 0 4rem;
+  }
+
+  /* SERVICES */
+  #services { background: var(--dark); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: rgba(184,176,164,0.08);
+    border: 1px solid rgba(184,176,164,0.08);
+  }
+
+  .service-card {
+    background: var(--dark);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover { background: var(--steel); }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--rust);
+    transition: height 0.35s ease;
+  }
+
+  .service-card:hover::before { height: 100%; }
+
+  .service-number {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: rgba(184,176,164,0.08);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    line-height: 1;
+  }
+
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    color: var(--smoke);
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+
+  .service-includes {
+    list-style: none;
+    margin-bottom: 1.75rem;
+  }
+
+  .service-includes li {
+    font-family: var(--font-cond);
+    font-size: 0.9rem;
+    color: var(--ash);
+    letter-spacing: 0.04em;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(184,176,164,0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .service-includes li::before {
+    content: '—';
+    color: var(--rust);
+    font-size: 0.75rem;
+  }
+
+  .service-price {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--rust-light);
+    letter-spacing: 0.02em;
+  }
+
+  .service-price-note {
+    font-family: var(--font-cond);
+    font-size: 0.8rem;
+    color: var(--smoke);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  /* GALLERY */
+  #gallery { background: var(--black); }
+
+  .gallery-intro {
+    font-size: 1rem;
+    color: var(--smoke);
+    max-width: 500px;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .before-after-grid {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ba-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--steel);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ba-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ba-icon {
+    font-size: 3.5rem;
+    opacity: 0.15;
+  }
+
+  .ba-tag {
+    position: absolute;
+    bottom: 0; left: 0;
+    font-family: var(--font-cond);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.45rem 1rem;
+  }
+
+  .ba-tag.before { background: rgba(42,39,35,0.9); color: var(--smoke); }
+  .ba-tag.after  { background: var(--rust); color: var(--white); }
+
+  .ba-caption {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 1rem;
+    font-family: var(--font-cond);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .ba-item:hover .ba-caption { opacity: 1; }
+
+  /* Gallery placeholder cards */
+  .gallery-card-bg-1 { background: linear-gradient(135deg, #1e1c18 0%, #2a2420 100%); }
+  .gallery-card-bg-2 { background: linear-gradient(135deg, #1c1e18 0%, #232820 100%); }
+  .gallery-card-bg-3 { background: linear-gradient(135deg, #1e1818 0%, #2a2020 100%); }
+  .gallery-card-bg-4 { background: linear-gradient(135deg, #181c1e 0%, #202328 100%); }
+
+  .placeholder-car {
+    width: 120px;
+    opacity: 0.12;
+  }
+
+  .gallery-note {
+    margin-top: 1.5rem;
+    font-family: var(--font-cond);
+    font-size: 0.85rem;
+    color: var(--smoke);
+    letter-spacing: 0.08em;
+  }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--dark); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: var(--black);
+    border: 1px solid rgba(184,176,164,0.08);
+    padding: 2rem;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    left: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 6rem;
+    color: var(--rust);
+    opacity: 0.25;
+    line-height: 1;
+  }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 1rem;
+  }
+
+  .star {
+    color: var(--rust);
+    font-size: 1rem;
+  }
+
+  .star.half { position: relative; display: inline-block; }
+  .star.half::after {
+    content: '★';
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--rust);
+  }
+  .star.half-empty { color: rgba(192,65,10,0.25); }
+
+  .review-text {
+    font-size: 0.95rem;
+    color: var(--ash);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .reviewer-name {
+    font-family: var(--font-cond);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .reviewer-vehicle {
+    font-family: var(--font-cond);
+    font-size: 0.82rem;
+    color: var(--smoke);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    padding: 1.75rem 2rem;
+    background: var(--steel);
+    border-left: 4px solid var(--rust);
+  }
+
+  .rating-big {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .rating-detail {
+    font-family: var(--font-cond);
+    font-size: 0.85rem;
+    color: var(--smoke);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  /* BOOKING */
+  #booking { background: var(--black); }
+
+  .booking-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .booking-info p {
+    font-size: 0.95rem;
+    color: var(--smoke);
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact-icon {
+    background: var(--steel);
+    border: 1px solid rgba(192,65,10,0.3);
+    color: var(--rust);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .contact-info-label {
+    font-family: var(--font-cond);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--smoke);
+  }
+
+  .contact-info-val {
+    font-size: 0.95rem;
+    color: var(--cream);
+    margin-top: 0.15rem;
+  }
+
+  /* FORM */
+  .booking-form {
+    background: var(--dark);
+    border: 1px solid rgba(184,176,164,0.08);
+    padding: 2.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-family: var(--font-cond);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--smoke);
+  }
+
+  input, select, textarea {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid rgba(184,176,164,0.15);
+    color: var(--cream);
+    padding: 0.75rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--rust);
+  }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888078' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  select option { background: var(--dark); }
+
+  textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    font-family: var(--font-cond);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--rust);
+    border: none;
+    padding: 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--rust-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(192,65,10,0.25);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .footer-logo span { color: var(--rust); }
+
+  .footer-copy {
+    font-family: var(--font-cond);
+    font-size: 0.82rem;
+    color: var(--smoke);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(184,176,164,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--smoke);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .social-link:hover {
+    border-color: var(--rust);
+    color: var(--rust);
+  }
+
+  .service-book-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: var(--font-cond);
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rust-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(192,65,10,0.4);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .service-book-btn:hover {
+    color: var(--white);
+    border-color: var(--white);
+  }
+
+  /* VIDEO GALLERY */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .video-slot { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--steel);
+    border: 1px solid rgba(184,176,164,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .video-placeholder:hover { border-color: var(--rust); }
+
+  .vp-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.015) 20px,
+      rgba(255,255,255,0.015) 21px
+    );
+  }
+
+  .vp-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(192,65,10,0.18);
+    border: 2px solid rgba(192,65,10,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--rust);
+    padding-left: 4px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .video-placeholder:hover .vp-play {
+    background: rgba(192,65,10,0.35);
+    border-color: var(--rust-light);
+  }
+
+  .vp-label {
+    font-family: var(--font-cond);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--smoke);
+  }
+
+  .video-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .video-tag {
+    font-family: var(--font-cond);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--rust-dim);
+    color: var(--ash);
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .video-desc {
+    font-family: var(--font-cond);
+    font-size: 0.9rem;
+    color: var(--smoke);
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .section-inner { padding: 4rem 1.5rem; }
+    .video-grid { grid-template-columns: 1fr; }
+    
+    .booking-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { padding: 2rem 1.5rem; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .divider { margin: 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Diego's <span>Details</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-tag">Auto Detailing – Cambridge, Ohio</div>
+  <h1>Diego's<em>Details</em></h1>
+  <p class="hero-sub">No shortcuts. No excuses. Every car leaves cleaner than when it came in — guaranteed.</p>
+  <div class="hero-actions">
+    <a href="#booking" class="btn-primary">Book a Detail</a>
+    <a href="#services" class="btn-ghost">View Services</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">500<span>+</span></div>
+      <div class="stat-label">Cars Detailed</div>
+    </div>
+    <div>
+      <div class="stat-num">4.5<span>★</span></div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div>
+      <div class="stat-num">3<span>+</span></div>
+      <div class="stat-label">Years in Business</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-label">What We Offer</div>
+    <div class="section-title">Services &<br>Pricing</div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-name">Basic Detail</div>
+        <p class="service-desc">The essential clean for drivers who want their ride looking sharp without the wait. Fast, thorough, no-nonsense.</p>
+        <ul class="service-includes">
+          <li>Exterior hand wash & rinse</li>
+          <li>Wheel & tire clean</li>
+          <li>Window wipe-down inside & out</li>
+          <li>Interior vacuum</li>
+          <li>Dashboard & console wipe</li>
+          <li>Door jamb wipe-down</li>
+        </ul>
+        <div class="service-price">$50–$60</div>
+        <div class="service-price-note">Based on vehicle size</div>
+        <a href="#booking" class="service-book-btn">Book This →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-name">Full Detail</div>
+        <p class="service-desc">A deep clean inside and out. Every corner, every crack, every surface — done right.</p>
+        <ul class="service-includes">
+          <li>Everything in Basic Detail</li>
+          <li>Hand wax & exterior polish</li>
+          <li>Deep interior shampoo & scrub</li>
+          <li>Leather/vinyl conditioning</li>
+          <li>Odor treatment</li>
+          <li>Tire shine & dressing</li>
+          <li>Engine bay wipe-down</li>
+        </ul>
+        <div class="service-price">$120–$150</div>
+        <div class="service-price-note">Based on vehicle size</div>
+        <a href="#booking" class="service-book-btn">Book This →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-name">Extreme Detail</div>
+        <p class="service-desc">The full treatment. When you want your car looking better than the day you bought it — this is the one.</p>
+        <ul class="service-includes">
+          <li>Everything in Full Detail</li>
+          <li>Clay bar decontamination</li>
+          <li>Multi-stage machine polish</li>
+          <li>Swirl & scratch removal</li>
+          <li>Paint sealant coat</li>
+          <li>Headlight restoration</li>
+          <li>Before & after photos</li>
+        </ul>
+        <div class="service-price">$200–$225</div>
+        <div class="service-price-note">Based on vehicle condition & size</div>
+        <a href="#booking" class="service-book-btn">Book This →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-label">The Work</div>
+    <div class="section-title">See It<br>In Action</div>
+    <p class="gallery-intro">Short clips of real jobs. No filters, no tricks — just the work speaking for itself.</p>
+
+    <div class="video-grid">
+
+      <div class="video-slot">
+        <div class="video-placeholder">
+          <div class="vp-inner">
+            <div class="vp-play">&#9654;</div>
+            <div class="vp-label">Video Coming Soon</div>
+          </div>
+        </div>
+        <div class="video-meta">
+          <span class="video-tag">Basic Detail</span>
+          <span class="video-desc">Sedan walkthrough — wash to finish</span>
+        </div>
+      </div>
+
+      <div class="video-slot">
+        <div class="video-placeholder">
+          <div class="vp-inner">
+            <div class="vp-play">&#9654;</div>
+            <div class="vp-label">Video Coming Soon</div>
+          </div>
+        </div>
+        <div class="video-meta">
+          <span class="video-tag">Full Detail</span>
+          <span class="video-desc">Deep interior clean on a pickup truck</span>
+        </div>
+      </div>
+
+      <div class="video-slot">
+        <div class="video-placeholder">
+          <div class="vp-inner">
+            <div class="vp-play">&#9654;</div>
+            <div class="vp-label">Video Coming Soon</div>
+          </div>
+        </div>
+        <div class="video-meta">
+          <span class="video-tag">Extreme Detail</span>
+          <span class="video-desc">Before &amp; after — swirl removal on black paint</span>
+        </div>
+      </div>
+
+      <div class="video-slot">
+        <div class="video-placeholder">
+          <div class="vp-inner">
+            <div class="vp-play">&#9654;</div>
+            <div class="vp-label">Video Coming Soon</div>
+          </div>
+        </div>
+        <div class="video-meta">
+          <span class="video-tag">Full Detail</span>
+          <span class="video-desc">Interior shampoo &amp; leather condition</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="gallery-note">🎥 When you're ready, drop your video files or YouTube/TikTok links in to replace these slots.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-label">Word on the Street</div>
+    <div class="section-title">Customer<br>Reviews</div>
+
+    <div class="rating-summary">
+      <div>
+        <div class="rating-big">4.5</div>
+        <div class="stars">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star half-empty" style="position:relative; display:inline-block;">
+            <span style="position:absolute;left:0;width:50%;overflow:hidden;color:var(--rust);">★</span>★
+          </span>
+        </div>
+        <div class="rating-detail">Based on 80+ reviews</div>
+      </div>
+      <div>
+        <p style="font-size:0.95rem; color:var(--ash); max-width:380px; line-height:1.7;">Diego takes real pride in his work. Customers keep coming back because the results are always honest and the price is fair.</p>
+      </div>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="review-card">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">My truck looked like it just rolled off the lot. Diego got into every corner and the interior smells completely fresh. Worth every dollar.</p>
+        <div class="reviewer-name">Marcus T.</div>
+        <div class="reviewer-vehicle">2019 Ford F-150</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">Had swirl marks all over my black paint. One session with Diego and they were completely gone. The polish job is immaculate.</p>
+        <div class="reviewer-name">Angela R.</div>
+        <div class="reviewer-vehicle">2021 BMW 3 Series</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span class="star half-empty" style="position:relative; display:inline-block;">
+            <span style="position:absolute;left:0;width:50%;overflow:hidden;color:var(--rust);">★</span>★
+          </span>
+        </div>
+        <p class="review-text">Solid work, fair pricing, no BS. Booked online, he showed up on time, got it done. That's all I ask for. Will be back for the ceramic coat next month.</p>
+        <div class="reviewer-name">Justin M.</div>
+        <div class="reviewer-vehicle">2020 Chevy Silverado</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-inner">
+    <div class="booking-layout">
+      <div class="booking-info">
+        <div class="section-label">Get Started</div>
+        <div class="section-title" style="font-size: clamp(2.5rem,5vw,4rem);">Book Your<br>Detail</div>
+        <p>Fill out the form and Diego will be in touch within 24 hours to confirm your appointment and any details about your vehicle.</p>
+        <ul class="contact-list">
+          <li>
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-info-label">Location</div>
+              <div class="contact-info-val">Cambridge, Ohio – Mobile service, we come to you</div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-val">(330) 606-8627</div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-val">diegothomas223@icloud.com</div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-info-label">Hours</div>
+              <div class="contact-info-val">Mon–Sat: 7am–6pm</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="booking-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Diego">
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Rivera">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="(740) 555-0000">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@email.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="vehicle">Vehicle</label>
+            <input type="text" id="vehicle" placeholder="2020 Toyota Camry">
+          </div>
+          <div class="form-group">
+            <label for="service">Service</label>
+            <select id="service">
+              <option value="">Select a service</option>
+              <option>Basic Detail – $50–$60</option>
+              <option>Full Detail – $120–$150</option>
+              <option>Extreme Detail – $200–$225</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:1.25rem;">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date">
+        </div>
+
+        <div class="form-group" style="margin-bottom:1.25rem;">
+          <label for="notes">Notes</label>
+          <textarea id="notes" placeholder="Any specific concerns, damage, or requests..."></textarea>
+        </div>
+
+        <!-- DEPOSIT BOX -->
+        <div style="background:var(--black); border-left:3px solid var(--rust); padding:1.1rem 1.25rem; margin-bottom:1.5rem; border-radius:2px;">
+          <div style="font-family:var(--font-cond); font-size:0.75rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--rust); margin-bottom:0.5rem;">$25 Deposit Required to Book</div>
+          <p style="font-size:0.88rem; color:var(--ash); line-height:1.6; margin-bottom:0.85rem;">A $25 deposit is required to confirm your appointment. It is <strong style="color:var(--cream);">fully refunded</strong> when your car is in the driveway and ready to go. Send it to any of the following before your appointment is confirmed:</p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
+            <span style="font-family:var(--font-cond); font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; background:var(--steel); color:var(--ash); padding:0.35rem 0.85rem; border-radius:2px; border:1px solid rgba(184,176,164,0.12);">💵 Cash App</span>
+            <span style="font-family:var(--font-cond); font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; background:var(--steel); color:var(--ash); padding:0.35rem 0.85rem; border-radius:2px; border:1px solid rgba(184,176,164,0.12);">💙 Venmo</span>
+            <span style="font-family:var(--font-cond); font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; background:var(--steel); color:var(--ash); padding:0.35rem 0.85rem; border-radius:2px; border:1px solid rgba(184,176,164,0.12);">🅿️ PayPal</span>
+            <span style="font-family:var(--font-cond); font-size:0.82rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; background:var(--steel); color:var(--ash); padding:0.35rem 0.85rem; border-radius:2px; border:1px solid rgba(184,176,164,0.12);">⚡ Zelle</span>
+          </div>
+          <p style="font-size:0.8rem; color:var(--smoke); margin-top:0.75rem; line-height:1.5;">Diego will send you his payment handle after your request is submitted. Appointment is not confirmed until deposit is received.</p>
+        </div>
+
+        <button class="form-submit" onclick="handleSubmit()">Request Appointment →</button>
+        <p id="form-msg" style="font-family:var(--font-cond); font-size:0.85rem; text-align:center; margin-top:0.75rem; color:var(--rust-light); display:none;">✔ Sent! Check your email — Diego will confirm within 24 hours.</p>
+        <p id="form-err" style="font-family:var(--font-cond); font-size:0.85rem; text-align:center; margin-top:0.75rem; color:#e04f10; display:none;">Please fill out all required fields.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Diego's <span>Details</span></div>
+  <div class="footer-copy">© 2025 Diego's Details · Cambridge, Ohio</div>
+  <div class="footer-social">
+    <a href="#" class="social-link" aria-label="Instagram">📸</a>
+    <a href="#" class="social-link" aria-label="Facebook">👍</a>
+    <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit() {
+  const fname    = document.getElementById('fname').value.trim();
+  const lname    = document.getElementById('lname').value.trim();
+  const phone    = document.getElementById('phone').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const vehicle  = document.getElementById('vehicle').value.trim();
+  const service  = document.getElementById('service').value.trim();
+  const date     = document.getElementById('date').value.trim();
+  const notes    = document.getElementById('notes').value.trim();
+
+  const msg = document.getElementById('form-msg');
+  const err = document.getElementById('form-err');
+  msg.style.display = 'none';
+  err.style.display = 'none';
+
+  if (!fname || !lname || !phone || !email || !vehicle || !service || !date) {
+    err.style.display = 'block';
+    return;
+  }
+
+  const subject = encodeURIComponent('New Appointment Request – Diego\'s Details');
+  const body = encodeURIComponent(
+    'NEW BOOKING REQUEST\n' +
+    '===================\n\n' +
+    'Name:     ' + fname + ' ' + lname + '\n' +
+    'Phone:    ' + phone + '\n' +
+    'Email:    ' + email + '\n' +
+    'Vehicle:  ' + vehicle + '\n' +
+    'Service:  ' + service + '\n' +
+    'Date:     ' + date + '\n\n' +
+    'Notes:\n' + (notes || 'None') + '\n\n' +
+    '---\n' +
+    'Remind customer to send $25 deposit via Cash App, Venmo, PayPal, or Zelle to confirm.'
+  );
+
+  window.location.href = 'mailto:diegothomas223@icloud.com?subject=' + subject + '&body=' + body;
+
+  setTimeout(() => { msg.style.display = 'block'; }, 500);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
